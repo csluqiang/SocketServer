@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SocketServerManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+
+        SocketServerManager *socketServerMan = [SocketServerManager sharedManager];
+        [socketServerMan startSocket];
+        
+        [[NSRunLoop mainRunLoop] run];
     }
     return 0;
 }
