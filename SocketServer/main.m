@@ -13,7 +13,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
         SocketServerManager *socketServerMan = [SocketServerManager sharedManager];
-        [socketServerMan startSocket];
+        [socketServerMan startSocketWithPort:52000];
         
         [[NSRunLoop mainRunLoop] run];
     }

@@ -30,7 +30,7 @@
     return sharedInstance;
 }
 
-- (void)startSocket
+- (void)startSocketWithPort:(NSInteger)port
 {
     
     asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -44,9 +44,8 @@
     // This allows the operating system to automatically assign us an available port.
     
     NSError *err = nil;
-    if ([asyncSocket acceptOnPort:52000 error:&err])
+    if ([asyncSocket acceptOnPort:port error:&err])
     {
-        // So what port did the OS give us?
         
         UInt16 port = [asyncSocket localPort];
         
