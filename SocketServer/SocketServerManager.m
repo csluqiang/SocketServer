@@ -23,7 +23,7 @@
 + (instancetype)sharedManager
 {
     static dispatch_once_t token;
-    __block SocketServerManager *sharedInstance = nil;
+    static SocketServerManager *sharedInstance = nil;
     dispatch_once(&token, ^{
         sharedInstance = [self new];
     });
